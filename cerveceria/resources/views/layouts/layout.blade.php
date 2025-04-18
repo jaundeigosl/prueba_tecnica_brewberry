@@ -46,6 +46,10 @@
 
         @yield('body')
 
+        <div class="bottom-0 w-full h-[10%] bg-black">
+        </div>
+
+
         <nav class="w-full h-[10%] fixed bottom-0 z-1 ">
             <x-nav.bar>
                 <x-slot name="firstIcon">

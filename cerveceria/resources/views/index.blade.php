@@ -88,7 +88,7 @@
                 }
 
                 container.innerHTML += `
-                <div class="flex flex-shrink-0 min-w-68 max-w-72 sm:max-w-[420px] mx-[1vw]">
+                <div class="flex flex-shrink-0 max-h-[250px] sm:max-h-[280px] min-w-[300px] max-w-[380px] sm:max-w-[450px] mx-[1vw]">
                     <x-card>
                         <x-slot name="brewberry_name">
                             <h1 class="font-bold text-[5vw] sm:text-[25px] mb-[4vw] line-clamp-1">
@@ -101,13 +101,13 @@
                         </x-slot>
 
                         <x-slot name="brewberry_location">
-                            <span class="text-[4vw] sm:text-[17px]">
+                            <span class="text-[3vw] sm:text-[17px]">
                                 ${address}
                             </span>
                         </x-slot>
 
                         <x-slot name="brewberry_phone_number">
-                            <span class="text-[4vw] sm:text-[17px]">
+                            <span class="text-[3vw] sm:text-[17px]">
                                 ${phone}
                             </span>
                         </x-slot>
