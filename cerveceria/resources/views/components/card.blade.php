@@ -3,6 +3,7 @@
       {{$brewberry_name ?? ''}}
     </div>
     <div class="flex justify-center items-center">
+      
       <div class="mr-[1vw]">
         {{$brewberry_image ?? '' }}
       </div>
@@ -27,6 +28,6 @@
   </div>
 
   <div class="px-6 pt-4 pb-2 flex justify-center mb-[1vw]">
-    <span class=" min-w-[200px] max-w-[300px] text-center bg-linear-to-r from-[#3540E8] to-[#E41AD6] rounded-lg px-3 py-1 text-sm font-semibold text-white mr-2 mb-2">Ver más</span>
+    <a href="" class=" min-w-[200px] max-w-[300px] text-center bg-linear-to-r from-[#3540E8] to-[#E41AD6] rounded-lg px-3 py-1 text-sm font-semibold text-white mr-2 mb-2">Ver más</a>
   </div>
 </div>

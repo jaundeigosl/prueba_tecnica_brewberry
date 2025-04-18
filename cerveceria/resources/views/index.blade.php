@@ -6,7 +6,7 @@
     <h1 class=" m-[5%] font-bold text-[8vw]">Todas las opciones</h1>
 </div>
 <div class="w-full">
-    <div class="relative min-h-50 overflow-x-auto overflow-y-hidden rounded-lg">
+    <div class="relative min-h-56 overflow-x-auto overflow-y-hidden rounded-lg">
         <div id="carrousel-elements-all" class="flex w-max min-w-full"> 
         </div>
     </div>
@@ -16,7 +16,7 @@
     <h1 class=" m-[5%] font-bold text-[8vw]">Opciones en california</h1>
 </div>
 <div class="w-full">
-    <div class="relative min-h-50 overflow-x-auto overflow-y-hidden rounded-lg">
+    <div class="relative min-h-56 overflow-x-auto overflow-y-hidden rounded-lg">
         <div id="carrousel-elements-california" class="flex w-max min-w-full"> 
         </div>
     </div>
@@ -27,7 +27,7 @@
 
 <script>
     
-    const BREBERRY_AMOUNT = 5;
+    const BREBERRY_AMOUNT = 50;
 //Function
 
 
@@ -41,7 +41,7 @@
 
             if(location == ''){
 
-                url = `https://api.openbrewerydb.org/v1/breweries/random?size=${BREBERRY_AMOUNT}`;
+                url = `https://api.openbrewerydb.org/v1/breweries`;
             }
             else{
                 url =  `https://api.openbrewerydb.org/v1/breweries?by_state=${location}&per_page=${BREBERRY_AMOUNT}`;
@@ -88,10 +88,10 @@
                 }
 
                 container.innerHTML += `
-                <div class="flex flex-shrink-0 min-w-72 max-w-[380px] mx-[1vw]">
+                <div class="flex flex-shrink-0 min-w-68 max-w-72 sm:max-w-[420px] mx-[1vw]">
                     <x-card>
                         <x-slot name="brewberry_name">
-                            <h1 class="font-bold text-[5vw] mb-[4vw] line-clamp-1">
+                            <h1 class="font-bold text-[5vw] sm:text-[25px] mb-[4vw] line-clamp-1">
                                 ${data[i].name}
                             </h1
                         </x-slot>
