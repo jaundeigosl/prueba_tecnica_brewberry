@@ -16,40 +16,45 @@
                 <x-slot name="firstIcon">
                     <div class="w-full flex">
                         <div class="first-icon pl-[8%]">
-                            <img class="w-[8vw] max-w-[40px]" src="{{asset('images/icons/top_bar_icons/bars_menu_icon.svg')}}" alt="menu icon">
+                            <img class="w-[7vw] max-w-[40px]" src="{{asset('images/icons/top_bar_icons/bars_menu_icon.svg')}}" alt="menu icon">
                         </div>
                     </div>
                 </x-slot>
                 <x-slot name="secondIcon">
                     <div class="w-full flex justify-end">
                         <div class="mr-[8%]">
-                            <img class="w-[8vw] max-w-[40px]" src="{{asset('images/icons/top_bar_icons/trailing-icon.svg')}}" alt="menu icon notifications">
+                            <img class="w-[7vw] max-w-[40px]" src="{{asset('images/icons/top_bar_icons/trailing-icon.svg')}}" alt="menu icon notifications">
                         </div>
                         <div class="mr-[8%]">
-                            <img class="w-[8vw] max-w-[40px]" src="{{asset('images/icons/top_bar_icons/person_icon.svg')}}" alt="menu icon profile">
+                            <img class="w-[7vw] max-w-[40px]" src="{{asset('images/icons/top_bar_icons/person_icon.svg')}}" alt="menu icon profile">
                         </div>
                     </div>
                 </x-slot>
             </x-nav.bar>
         </nav>
 
+        <div class="top-0 w-full h-[10%] bg-black">
+        </div>
+
+        <div id="notifications"></div>
+
         @yield('body')
 
-        <nav class="w-full h-[6%] fixed bottom-0 z-1 ">
+        <nav class="w-full h-[10%] fixed bottom-0 z-1 ">
             <x-nav.bar>
                 <x-slot name="firstIcon">
                     <div class="first-icon w-full flex pl-[8%]">
-                        <img class="w-[8vw] max-w-[40px]" src="{{asset('images/icons/bottom_bar_icons/calendar.svg')}}" alt="calendar icon">
+                        <img class="w-[7vw] max-w-[40px]" src="{{asset('images/icons/bottom_bar_icons/calendar.svg')}}" alt="calendar icon">
                     </div>
                 </x-slot>
                 <x-slot name="secondIcon">
                     <div class="w-full flex justify-center">
-                        <img class="w-[8vw] max-w-[40px]" src="{{asset('images/icons/bottom_bar_icons/home.svg')}}" alt="home icon">
+                        <img class="w-[7vw] max-w-[40px]" src="{{asset('images/icons/bottom_bar_icons/home.svg')}}" alt="home icon">
                     </div>
                 </x-slot>
                 <x-slot name="thirdIcon">
                     <div class="w-full flex justify-end pr-[8%]">
-                        <img class="w-[8vw] max-w-[40px]" src="{{asset('images/icons/bottom_bar_icons/chat.svg')}}" alt="menu icon profile">
+                        <img class="w-[7vw] max-w-[40px]" src="{{asset('images/icons/bottom_bar_icons/chat.svg')}}" alt="menu icon profile">
                     </div>
                 </x-slot>
             </x-nav.bar>

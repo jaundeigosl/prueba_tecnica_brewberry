@@ -1,12 +1,32 @@
-<div class="max-w-sm rounded overflow-hidden shadow-lg">
-  <img class="w-full" src="" alt="">
-  <div class="px-6 py-4">
-    <div class="font-bold text-xl mb-2">The Coldest Sunset</div>
-    <p class="text-gray-700 text-base">
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, nulla! Maiores et perferendis eaque, exercitationem praesentium nihil.
-    </p>
+<div class="rounded bg-[#13132D] m-[2%] pl-[1%]">
+  <div class="px-[2vw] py-[1vw] h-auto">
+      {{$brewberry_name ?? ''}}
+    </div>
+    <div class="flex justify-center items-center">
+      <div class="mr-[1vw]">
+        {{$brewberry_image ?? '' }}
+      </div>
+      <div class="flex flex-wrap">
+
+        <div class="flex mb-[2vw]">
+          <img class="w-[5vw] max-w-[25px] ml-[2vw]" src="{{asset('images/icons/card_icons/location_icon.svg')}}" alt="location icon">
+          <div class="flex justify-center items-center ml-[2vw]">
+            {{$brewberry_location ?? ''}}
+          </div>
+        </div>
+
+        <div class="flex">
+          <img class="w-[5vw] max-w-[25px] ml-[2vw]" src="{{asset('images/icons/card_icons/phone_icon.svg')}}" alt="phone icon">
+          <div class="flex justify-center items-center ml-[2vw]">
+            {{$brewberry_phone_number ?? ''}}
+          </div>
+        </div>
+
+      </div>
+    </div>
   </div>
-  <div class="px-6 pt-4 pb-2">
-    <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#photography</span>
+
+  <div class="px-6 pt-4 pb-2 flex justify-center mb-[1vw]">
+    <span class=" min-w-[200px] max-w-[300px] text-center bg-linear-to-r from-[#3540E8] to-[#E41AD6] rounded-lg px-3 py-1 text-sm font-semibold text-white mr-2 mb-2">Ver más</span>
   </div>
 </div>
