@@ -28,6 +28,6 @@
   </div>
 
   <div class="px-6 pt-4 pb-2 flex justify-center mb-[1vw]">
-    <a href="" class=" w-[200px] sm:w-[300px] text-center bg-linear-to-r from-[#3540E8] to-[#E41AD6] rounded-lg px-3 py-1 text-sm font-semibold text-white mr-2 mb-2">Ver más</a>
+    <a href="{{route('cerveceria' , ['id' => '__id__'])}}" class="link-redirect w-[200px] sm:w-[300px] text-center bg-linear-to-r from-[#3540E8] to-[#E41AD6] rounded-lg px-3 py-1 text-sm font-semibold text-white mr-2 mb-2">Ver más</a>
   </div>
 </div>

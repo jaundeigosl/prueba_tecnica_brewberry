@@ -16,9 +16,7 @@
                 <x-slot name="firstIcon">
                     <div class="w-full flex">
                         <div class="first-icon pl-[8%]">
-                            <a href="">
-                                <img class="w-[7vw] max-w-[40px]" src="{{asset('images/icons/top_bar_icons/bars_menu_icon.svg')}}" alt="menu icon">
-                            </a>
+                            @yield('options')
                         </div>
                     </div>
                 </x-slot>
@@ -49,27 +47,32 @@
         <div class="bottom-0 w-full h-[10%] bg-black">
         </div>
 
-
         <nav class="w-full h-[10%] fixed bottom-0 z-1 ">
             <x-nav.bar>
                 <x-slot name="firstIcon">
-                    <div class="first-icon w-full flex pl-[8%]">
+                    <div class="first-icon w-[33%] flex justify-center ">
                         <a href="">
-                            <img class="w-[7vw] max-w-[40px]" src="{{asset('images/icons/bottom_bar_icons/calendar.svg')}}" alt="calendar icon">
+                            <div class="flex justify-center">
+                                <img class="w-[7vw] max-w-[40px]" src="{{asset('images/icons/bottom_bar_icons/calendar.svg')}}" alt="calendar icon">
+                            </div>
+                            <div class="text-[4vw] sm:text-[20px] text-center">Calendario</div>
                         </a>
                     </div>
                 </x-slot>
                 <x-slot name="secondIcon">
-                    <div class="w-full flex justify-center">
-                        <a href="">
-                            <img class="w-[7vw] max-w-[40px]" src="{{asset('images/icons/bottom_bar_icons/home.svg')}}" alt="home icon">
+                    <div class="w-[33%] flex justify-center">
+                        <a href="{{route('home')}}">
+                            @yield('home')
                         </a>
                     </div>
                 </x-slot>
                 <x-slot name="thirdIcon">
-                    <div class="w-full flex justify-end pr-[8%]">
+                    <div class="w-[33%] flex flex justify-center">
                         <a href="">
-                            <img class="w-[7vw] max-w-[40px]" src="{{asset('images/icons/bottom_bar_icons/chat.svg')}}" alt="menu icon profile">
+                            <div class="flex justify-center">
+                                <img class="w-[7vw] max-w-[40px]" src="{{asset('images/icons/bottom_bar_icons/chat.svg')}}" alt="menu icon profile">
+                            </div>
+                            <div class="text-[4vw] sm:text-[20px] text-center">Chat</div>
                         </a>
                     </div>
                 </x-slot>

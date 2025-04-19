@@ -1,12 +1,26 @@
 @extends('layouts.layout')
 
+@section('options')
+    <a href="">
+        <img class="w-[7vw] max-w-[40px]" src="{{asset('images/icons/top_bar_icons/bars_menu_icon.svg')}}" alt="menu icon">
+    </a>
+@endsection
+
+@section('home')
+    <div class="flex justify-center">
+        <img class="w-[7vw] max-w-[40px]" src="{{asset('images/icons/bottom_bar_icons/home_active.svg')}}" alt="home icon">
+    </div>
+    <div class="text-[4vw] sm:text-[20px] text-center text-[#3540E8]">Inicio</div>
+    
+@endsection
+
 @section('body')
 
 <div>
     <h1 class=" m-[5%] font-bold text-[8vw]">Todas las opciones</h1>
 </div>
 <div class="w-full">
-    <div class="relative min-h-56 overflow-x-auto overflow-y-hidden rounded-lg">
+    <div class="relative min-h-52 ms:min-h-60 overflow-x-auto overflow-y-hidden rounded-lg">
         <div id="carrousel-elements-all" class="flex w-max min-w-full"> 
         </div>
     </div>
@@ -16,7 +30,7 @@
     <h1 class=" m-[5%] font-bold text-[8vw]">Opciones en california</h1>
 </div>
 <div class="w-full">
-    <div class="relative min-h-56 overflow-x-auto overflow-y-hidden rounded-lg">
+    <div class="relative min-h-56  ms:min-h-60 overflow-x-auto overflow-y-hidden rounded-lg">
         <div id="carrousel-elements-california" class="flex w-max min-w-full"> 
         </div>
     </div>
@@ -29,6 +43,15 @@
     
     const BREBERRY_AMOUNT = 50;
 //Function
+
+    function addRedirectLink(id){
+        let container = document.getElementById(id);
+
+        let child = document.getElementsByClassName('link-redirect');
+        let childContainer = child[0];
+
+        childContainer.href.replace('__id__',id);
+    }
 
 
 
@@ -87,12 +110,15 @@
                     phone = 'No disponible';
                 }
 
+                let id = data[i].id;
+                let name = data[i].name;
+
                 container.innerHTML += `
-                <div class="flex flex-shrink-0 max-h-[250px] sm:max-h-[280px] min-w-[300px] max-w-[380px] sm:max-w-[450px] mx-[1vw]">
+                <div id="${id}" class="flex flex-shrink-0 max-h-[250px] sm:max-h-[280px] min-w-[300px] max-w-[320px] sm:max-w-[580px] mx-[1vw]">
                     <x-card>
                         <x-slot name="brewberry_name">
-                            <h1 class="font-bold text-[5vw] sm:text-[25px] mb-[4vw] line-clamp-1">
-                                ${data[i].name}
+                            <h1 class="font-bold text-[5vw] sm:text-[25px] mb-[2vw] line-clamp-1">
+                                ${name}
                             </h1
                         </x-slot>
 
@@ -101,18 +127,20 @@
                         </x-slot>
 
                         <x-slot name="brewberry_location">
-                            <span class="text-[3vw] sm:text-[17px]">
+                            <span class="text-[4vw] sm:text-[20px] line-clamp-2">
                                 ${address}
                             </span>
                         </x-slot>
 
                         <x-slot name="brewberry_phone_number">
-                            <span class="text-[3vw] sm:text-[17px]">
+                            <span class="text-[4vw] sm:text-[20px]">
                                 ${phone}
                             </span>
                         </x-slot>
                     </x-card>
                 </div>`
+
+                addRedirectLink(id);
             }
 
             console.log('exito', data); 
