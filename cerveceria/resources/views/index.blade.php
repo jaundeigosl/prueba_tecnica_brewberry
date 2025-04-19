@@ -1,5 +1,20 @@
 @extends('layouts.layout')
 
+@section('notification')
+
+<div class="w-full bg-[#FEEBCB] flex border-l-[1vw] border-[#DD6B20]">
+    <div class="flex align-center ml-[4vw]">
+        <img class ="w-[5vw] max-w-[40px]" src="{{asset('images/icons/alert_icons/alert_icon.svg')}}">
+    </div>
+    <div class="text-black text-[4vw] sm:text-[25px] my-[4vw] ml-[3vw]">
+        <span class="font-bold block">Happy Hour</span>
+        <span>16:00 - 17:00 hs MEX</span>
+    </div>
+</div>
+
+@endsection
+
+
 @section('options')
     <a href="">
         <img class="w-[7vw] max-w-[40px]" src="{{asset('images/icons/top_bar_icons/bars_menu_icon.svg')}}" alt="menu icon">

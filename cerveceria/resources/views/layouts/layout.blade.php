@@ -10,7 +10,7 @@
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
 
-    <body class="w-full h-screen bg-black text-white">
+    <body class="w-full h-screen bg-[#010316] text-white">
         <nav class="w-full h-[6%] fixed top-0 z-1 ">
             <x-nav.bar>
                 <x-slot name="firstIcon">
@@ -37,14 +37,14 @@
             </x-nav.bar>
         </nav>
 
-        <div class="top-0 w-full h-[10%] bg-black">
+        <div class="top-0 w-full h-[10%] bg-[#010316]">
         </div>
 
-        <div id="notifications"></div>
+       @yield('notification')
 
         @yield('body')
 
-        <div class="bottom-0 w-full h-[10%] bg-black">
+        <div class="bottom-0 w-full h-[10%] bg-[#010316]">
         </div>
 
         <nav class="w-full h-[10%] fixed bottom-0 z-1 ">
