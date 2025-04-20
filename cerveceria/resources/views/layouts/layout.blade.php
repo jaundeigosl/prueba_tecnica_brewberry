@@ -37,7 +37,7 @@
             </x-nav.bar>
         </nav>
 
-        <div class="top-0 w-full h-[10%] bg-[#010316]">
+        <div class="top-0 w-full h-[7%] bg-[#010316]">
         </div>
 
        @yield('notification')

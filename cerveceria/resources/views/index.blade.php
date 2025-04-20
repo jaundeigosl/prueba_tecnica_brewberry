@@ -57,20 +57,21 @@
 <script>
     
     const BREBERRY_AMOUNT = 50;
-//Function
+
+//Function that adds to each brewberry its custom link
 
     function addRedirectLink(id){
         let container = document.getElementById(id);
 
         let child = document.getElementsByClassName('link-redirect');
         let childContainer = child[0];
-
-        childContainer.href.replace('__id__',id);
+        childContainer.href = `/brewberry/${id}`;
     }
 
 
-
 //Function that fetchs all the brweberries from the api-
+
+    const STATE = 'california';
 
     async function fetchBreweries(location = '') {
         try {
@@ -154,11 +155,11 @@
                         </x-slot>
                     </x-card>
                 </div>`
-
+                
                 addRedirectLink(id);
             }
 
-            console.log('exito', data); 
+            console.log('exito'); 
 
         } catch (error) {
             console.log('error ', error);
@@ -167,7 +168,7 @@
     }
 
     fetchBreweries();
-    fetchBreweries('california');
+    fetchBreweries(STATE);
     
 </script>
 
