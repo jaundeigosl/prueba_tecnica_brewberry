@@ -52,13 +52,20 @@
         </div>
     </div>
 
-    <div class="pl-[4vw] pr-[4vw] mb-[5vw] text-white">
-        <div >
+    <div class="pl-[4vw] pr-[4vw] mb-[7vw] text-white">
+        <div class="h-[40vw] px-1">
             <span class="m-[2vw] w-full">
                 <a href="" class="w-full h-[25px] min-h-[12vw] font-bold text-[4vw] text-center bg-linear-to-r from-[#3540E8] to-[#E41AD6] rounded-lg px-3 py-1 text-sm font-semibold text-white flex items-center justify-center">Reservar mesa</a>  
             </span>
-            <span>
-                <a href="" class="w-full h-[25px] min-h-[12vw] font-bold text-[4vw] text-center border-[1px] border-linear-to-r from-[#3540E8] to-[#E41AD6] rounded-lg px-3 py-1 text-sm font-semibold text-white flex items-center justify-center">Opciones de transporte</a>
+            <span class="m-[2vw]">
+            <a href="" class="w-full h-[26px] min-h-[12vw] bg-linear-to-r from-[#3540E8] to-[#E41AD6] rounded-lg px-0.5 flex items-center justify-center">
+               <div class="w-full h-[25px] min-h-[11.5vw] bg-black rounded-lg">
+                    <div class=" w-full h-full flex justify-center items-center font-bold text-[4vw] text-center text-white"> 
+                        Opciones de transporte
+                    </div>
+               </div>
+            </a>  
+
             </span>
         </div> 
     </div>
@@ -121,7 +128,7 @@
 
             let phoneContainer = document.getElementById('brewberry-phone');
 
-            titleContainer.innerHTML += `<h1 class="font-bold text-[8vw] line-clamp-1">${title}</h1>`
+            titleContainer.innerHTML += `<h1 class="font-bold text-[8vw]">${title}</h1>`
 
             locationContainer.innerHTML += `<div class="flex items-center text-[4vw] sm:text-[25px]">${location}</div>`
 
