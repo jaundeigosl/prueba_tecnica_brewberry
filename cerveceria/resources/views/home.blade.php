@@ -92,7 +92,7 @@
             
             const response = await fetch(url, {});
             if (!response.ok) {
-                throw new Error(response.statusText + response.status);
+                throw new Error(response.statusText +" "+ response.status);
             }
             const data = await response.json();
 
@@ -173,10 +173,9 @@
                 }
             }
 
-            console.log('exito'); 
 
         } catch (error) {
-            console.log('error ', error);
+            alert(error.message);
         }
 
     }

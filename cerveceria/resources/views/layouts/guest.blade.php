@@ -14,8 +14,8 @@
         <div class="w-full h-[25%] flex items-center justify-center">
             @yield('title')
         </div>
-        <div class="w-full h-[110vw] flex items-center justify-center px-[2vw]">
-            <div class="w-full h-full px-[2vw] bg-[#13132D] rounded-lg">
+        <div class="w-full flex items-center justify-center px-[4vw] pb-[2vw]">
+            <div class="w-full h-full flex px-[2vw] bg-[#13132D] rounded-lg">
                 <div class="w-full h-full">
                     <div class="w-full pt-[6vw]">
                         @yield('content')

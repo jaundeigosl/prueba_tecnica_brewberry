@@ -58,14 +58,13 @@
                 <a href="" class="w-full h-[25px] min-h-[12vw] font-bold text-[4vw] text-center bg-linear-to-r from-[#3540E8] to-[#E41AD6] rounded-lg px-3 py-1 text-sm font-semibold text-white flex items-center justify-center">Reservar mesa</a>  
             </span>
             <span class="m-[2vw]">
-            <a href="" class="w-full h-[26px] min-h-[12vw] bg-linear-to-r from-[#3540E8] to-[#E41AD6] rounded-lg px-0.5 flex items-center justify-center">
-               <div class="w-full h-[25px] min-h-[11.5vw] bg-black rounded-lg">
-                    <div class=" w-full h-full flex justify-center items-center font-bold text-[4vw] text-center text-white"> 
-                        Opciones de transporte
+                <a href="" class="w-full h-[26px] min-h-[12vw] bg-linear-to-r from-[#3540E8] to-[#E41AD6] rounded-lg px-0.5 flex items-center justify-center">
+                    <div class="w-full h-[25px] min-h-[11.5vw] bg-black rounded-lg">
+                        <div class=" w-full h-full flex justify-center items-center font-bold text-[4vw] text-center text-white"> 
+                            Opciones de transporte
+                        </div>
                     </div>
-               </div>
-            </a>  
-
+                </a>  
             </span>
         </div> 
     </div>
