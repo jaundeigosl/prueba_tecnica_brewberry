@@ -14,14 +14,14 @@
         <nav class="w-full h-[6%] fixed top-0 z-1 ">
             <x-nav.bar>
                 <x-slot name="firstIcon">
-                    <div class="w-full flex">
+                    <div class="w-full flex items-center">
                         <div class="first-icon pl-[8%]">
                             @yield('options')
                         </div>
                     </div>
                 </x-slot>
                 <x-slot name="secondIcon">
-                    <div class="w-full flex justify-end">
+                    <div class="w-full flex justify-end items-center">
                         <div class="mr-[8%]">
                             <a href="">
                                 <img class="w-[7vw] max-w-[40px]" src="{{asset('images/icons/top_bar_icons/trailing-icon.svg')}}" alt="menu icon notifications">

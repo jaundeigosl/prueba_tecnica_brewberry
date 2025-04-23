@@ -16,9 +16,23 @@
 
 
 @section('options')
-    <a href="">
-        <img class="w-[7vw] max-w-[40px]" src="{{asset('images/icons/top_bar_icons/bars_menu_icon.svg')}}" alt="menu icon">
-    </a>
+
+<div class="pt-2" id="dropdown-container">
+  <button id="dropdown-button">
+    <img class="w-[7vw] max-w-[40px]" src="{{asset('images/icons/top_bar_icons/bars_menu_icon.svg')}}" alt="menu icon">
+  </button>
+
+  <div id="dropdown-menu" class="absolute w-[35vw] bg-white rounded-md shadow-lg z-50 hidden origin-top-left">
+    <div class="py-1">
+        <form method="POST" action="{{route('autenticacion-salida')}}">
+            @csrf
+            <button type="submit" class="block px-4 text-[3vw] text-black">
+                Cerrar sesión
+            </button>
+        </form>
+    </div>
+  </div>
+</div>
 @endsection
 
 @section('home')
@@ -55,10 +69,37 @@
 
 
 <script>
+
+    //adding the events for the dropdown (logout)
+
+    document.addEventListener('DOMContentLoaded', function() {
+        const dropdownButton = document.getElementById('dropdown-button');
+        const dropdownMenu = document.getElementById('dropdown-menu');
+        const dropdownContainer = document.getElementById('dropdown-container');
+
+        dropdownButton.addEventListener('click', function(e) {
+            e.stopPropagation();
+            dropdownMenu.classList.toggle('hidden');
+        });
+
+        document.addEventListener('click', function(e) {
+            if (!dropdownContainer.contains(e.target)) {
+            dropdownMenu.classList.add('hidden');
+            }
+        });
+
+        dropdownMenu.addEventListener('transitionend', function() {
+            if (dropdownMenu.classList.contains('hidden')) {
+            dropdownMenu.style.removeProperty('transform');
+            dropdownMenu.style.removeProperty('opacity');
+            }
+        });
+    });
+
     
     const BREBERRY_AMOUNT = 50;
 
-//Function that adds to each brewbery its custom link
+//Function that adds to each item its custom link
 
     function addRedirectLink(id , location = ''){
         let container;
@@ -73,22 +114,13 @@
     }
 
 
-//Function that fetchs all the brweberies from the api-
+//Function that fetchs all the brewberies from the api
+    const STATE = 'California';
 
-    const STATE = 'california';
-
-    async function fetchBreweries(location = '') {
+    async function fetchBreweries() {
         try {
 
-            let url;
-
-            if(location == ''){
-
-                url = `https://api.openbrewerydb.org/v1/breweries`;
-            }
-            else{
-                url =  `https://api.openbrewerydb.org/v1/breweries?by_state=${location}&per_page=${BREBERRY_AMOUNT}`;
-            }
+            let url = 'https://api.openbrewerydb.org/v1/breweries'
             
             const response = await fetch(url, {});
             if (!response.ok) {
@@ -96,82 +128,105 @@
             }
             const data = await response.json();
 
-            let container;
+            let container = document.getElementById('carrousel-elements-all');
 
-            if(location !== ''){
-                container = document.getElementById('carrousel-elements-california');
-            }else{
-                container = document.getElementById('carrousel-elements-all');
-            }
-
-            for(let i = 0 ; i < BREBERRY_AMOUNT; i++){
+            data.forEach((item)=>{
 
                 let address = '';
 
-                if(data[i].street !== null && data[i].street !== ''){
-                    address = data[i].street + ', ';
+                if(item.street !== null && item.street !== ''){
+                    address = item.street + ', ';
                 }
 
-                if(data[i].city !== null && data[i].city !== ''){
-                    address = address + data[i].city + ', ';
+                if(item.city !== null && item.city !== ''){
+                    address = address + item.city + ', ';
                 }
 
-                if(data[i].state !== null && data[i].state !== ''){
-                    address = address + data[i].state;
+                if(item.state !== null && item.state !== ''){
+                    address = address + item.state;
                 }
                
                 if(address == ''){
                     address = 'No Disponible';
                 }
 
-                let phone = data[i].phone;
+                let phone = item.phone;
 
                 if(phone == null || phone == ''){
                     phone = 'No disponible';
                 }
 
-                let id = data[i].id;
-                let temporal;
-                let name = data[i].name;
+                let id = item.id;
+                let name = item.name;
 
-                if(location!==''){
-                    temporal = id;
-                    id = id +"-"+ location;
-                }
-
+                //for all the brewberies
                 container.innerHTML += `
-                <div id="${id}" class="flex flex-shrink-0 max-h-[250px] sm:max-h-[280px] min-w-[300px] max-w-[320px] sm:max-w-[580px] mx-[1vw]">
-                    <x-card>
-                        <x-slot name="brewberry_name">
-                            <h1 class="font-bold text-[5vw] sm:text-[25px] mb-[2vw] line-clamp-1">
-                                ${name}
-                            </h1
-                        </x-slot>
+                    <div id="${id}" class="flex flex-shrink-0 max-h-[250px] sm:max-h-[280px] min-w-[300px] max-w-[320px] sm:max-w-[580px] mx-[1vw]">
+                        <x-card>
+                            <x-slot name="brewberry_name">
+                                <h1 class="font-bold text-[5vw] sm:text-[25px] mb-[2vw] line-clamp-1">
+                                    ${name}
+                                </h1>
+                            </x-slot>
 
-                        <x-slot name="brewberry_image">
-                            <img class="w-[40vw] max-w-[80px] sm:max-w-[120px] rounded-full" src="{{asset('images/brewberries/cerveceria.jpg')}}" alt="brewberry image">
-                        </x-slot>
+                            <x-slot name="brewberry_image">
+                                <img class="w-[40vw] max-w-[80px] sm:max-w-[120px] rounded-full" src="{{asset('images/brewberries/cerveceria.jpg')}}" alt="brewberry image">
+                            </x-slot>
 
-                        <x-slot name="brewberry_location">
-                            <span class="text-[4vw] sm:text-[20px] line-clamp-2">
-                                ${address}
-                            </span>
-                        </x-slot>
+                            <x-slot name="brewberry_location">
+                                <span class="text-[4vw] sm:text-[20px] line-clamp-2">
+                                    ${address}
+                                </span>
+                            </x-slot>
 
-                        <x-slot name="brewberry_phone_number">
-                            <span class="text-[4vw] sm:text-[20px]">
-                                ${phone}
-                            </span>
-                        </x-slot>
-                    </x-card>
-                </div>`;
-                
-                if(location !==''){
-                    addRedirectLink(temporal,location);
-                }else{
-                    addRedirectLink(id);
+                            <x-slot name="brewberry_phone_number">
+                                <span class="text-[4vw] sm:text-[20px]">
+                                    ${phone}
+                                </span>
+                            </x-slot>
+                        </x-card>
+                    </div>`;
+
+                addRedirectLink(id); 
+
+                //state filter
+                if(item.state == STATE){
+
+                    let filterContainer =  document.getElementById('carrousel-elements-california');
+
+                    id = item.id +"-"+item.state;
+                    
+                    filterContainer.innerHTML += `
+                    <div id="${id}" class="flex flex-shrink-0 max-h-[250px] sm:max-h-[280px] min-w-[300px] max-w-[320px] sm:max-w-[580px] mx-[1vw]">
+                        <x-card>
+                            <x-slot name="brewberry_name">
+                                <h1 class="font-bold text-[5vw] sm:text-[25px] mb-[2vw] line-clamp-1">
+                                    ${name}
+                                </h1>
+                            </x-slot>
+
+                            <x-slot name="brewberry_image">
+                                <img class="w-[40vw] max-w-[80px] sm:max-w-[120px] rounded-full" src="{{asset('images/brewberries/cerveceria.jpg')}}" alt="brewberry image">
+                            </x-slot>
+
+                            <x-slot name="brewberry_location">
+                                <span class="text-[4vw] sm:text-[20px] line-clamp-2">
+                                    ${address}
+                                </span>
+                            </x-slot>
+
+                            <x-slot name="brewberry_phone_number">
+                                <span class="text-[4vw] sm:text-[20px]">
+                                    ${phone}
+                                </span>
+                            </x-slot>
+                        </x-card>
+                    </div>`;
+
+                    addRedirectLink(item.id , item.state);
                 }
-            }
+                    
+            });
 
 
         } catch (error) {
@@ -181,7 +236,6 @@
     }
 
     fetchBreweries();
-    fetchBreweries(STATE);
     
 </script>
 

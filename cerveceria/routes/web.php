@@ -13,6 +13,8 @@ Route::get('/Home', function(){
     return view('home');
 })->middleware('auth')->name('home');
 
+Route::get('/Brewbery/{id}',[BrewberyController::class, 'index'])->middleware('auth')->name('cerveceria');
+
 Route::get('/Register', [RegisterController::class,'index'])->name('registrarse');
 
 Route::post('/Register', [RegisterController::class, 'post'])->name('validacion-registro');
@@ -23,4 +25,4 @@ Route::get('/login',[LogInController::class, 'index'])->name('login');
 
 Route::post('/login', [LogInController::class, 'post'])->name('autenticacion-acceso');
 
-Route::get('/Brewbery/{id}',[BrewberyController::class, 'index'])->middleware('auth')->name('cerveceria');
+Route::post('/login-log_out', [LogInController::class, 'log_out'])->name('autenticacion-salida');

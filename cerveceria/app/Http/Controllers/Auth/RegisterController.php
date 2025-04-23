@@ -51,6 +51,8 @@ class RegisterController extends Controller {
             'name' => $request->first_name ,
             'last_name' => $request->last_name,
             'password' => Hash::make($request->password),
+            'created_at' => now(),
+            'updated_at' => now(),
         ]);
 
         return redirect('/login');

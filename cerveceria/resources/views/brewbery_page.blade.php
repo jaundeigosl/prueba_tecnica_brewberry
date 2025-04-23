@@ -46,7 +46,7 @@
     <div class="pl-[4vw] pr-[4vw]">
         <div class="w-full">
             <div class="relative h-64  overflow-y-auto overflow-x-hidden rounded-lg">
-                <div id="carrousel-elements-comments" class="flex w-max min-w-full"> 
+                <div id="carrousel-elements-comments"> 
                 </div>
             </div>
         </div>
@@ -70,9 +70,38 @@
     </div>
 
 <script>
-
+    const COMMENTSAMOUNT = 10;
     const PHOTOSAMOUNT = 5;
 
+    function insertComments(){
+
+        let container = document.getElementById('carrousel-elements-comments');
+        for(let i = 0; i < COMMENTSAMOUNT; i++){
+            container.innerHTML += `
+            <x-comment>
+
+                <x-slot name="profile_image">
+                    <img class="w-[7vw] max-w-[40px] rounded-full" src="{{asset('images/users/user.png')}}"></img>
+                </x-slot>
+
+                <x-slot name="profile_name">
+                    <div class="text-white text-[4vw] sm:text-[30px]">
+                        Juan
+                    </div>
+                </x-slot>
+
+                <x-slot name="comment">
+                    <div class="text-white line-clamp-2 text-[3vw] sm:text-[25px]">
+                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
+                        Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+                    </div
+                </x-slot>
+            </x-comment>
+            `;
+        }
+    }
+
+    //function that insert images of the brewbery
     function insertImages(){
 
         let carrouselContainer = document.getElementById('carrousel-elements-images');
@@ -83,12 +112,13 @@
                 <div class="m-[1vw]">
                     <image class="h-24 w-40 sm:h-40 sm:w-72 rounded-md sm:rounded-lg" src="{{asset('images/brewberries/cerveceria.jpg')}}" alt="brewberry image">
                 </div>
-            `
+            `;
 
         }
 
     }
 
+    //function that consults the api for an specific brewbery
     async function getBrewberryById(id){
 
         try {
@@ -133,16 +163,17 @@
 
             phoneContainer.innerHTML += `<div class="text-[4vw] sm:text-[25px]">${phone}</div>`
 
-            console.log('exito');
+        
+        }catch (error) {
 
-            } catch (error) {
-           console.log('error ', error);
+            alert(error.message);
         }
 
     }
 
     getBrewberryById("{{$id}}");
     insertImages();
+    insertComments();
 
 </script>
 @endsection

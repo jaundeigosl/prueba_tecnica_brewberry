@@ -13,7 +13,7 @@
         <h2 class="font-bold text-[4vw] text-center">Introduzca sus credenciales para proceder</h2>
     </div>
 
-    <form action="{{route('login')}}" method="POST"  >
+    <form action="{{route('autenticacion-acceso')}}" method="POST"  >
         @csrf
         <div class="px-[16vw] flex flex-wrap">
 
@@ -47,12 +47,5 @@
             </div>
         </div>
     </form>
-
-    <script>
-
-        //Validates if the type match
-       
-
-    </script>
 
 @endsection
