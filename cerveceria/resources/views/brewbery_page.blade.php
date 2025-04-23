@@ -81,7 +81,7 @@
             <x-comment>
 
                 <x-slot name="profile_image">
-                    <img class="w-[7vw] max-w-[40px] rounded-full" src="{{asset('images/users/user.png')}}"></img>
+                    <img class="w-[10vw] max-w-[60px] rounded-full" src="{{asset('images/users/user.png')}}"></img>
                 </x-slot>
 
                 <x-slot name="profile_name">

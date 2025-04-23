@@ -1,5 +1,5 @@
 # prueba_tecnica_brewbery
-Prueba tecnica full-stack (realizada con Laravel)
+Prueba técnica full-stack (realizada con Laravel)
 
 ## Requisitos Previos
 
@@ -40,7 +40,7 @@ npm install
 
 ```
 
-Ahora se debe de crear un nuevo archivo .env , de manera que se pude copiar el archivo .env.example 
+Ahora se debe de crear un nuevo archivo .env , de manera que se puede copiar el archivo .env.example 
 y cambiar los siguientes valores y sustituirlos por los correspondientes
 
 ``` ini
@@ -69,4 +69,5 @@ composer run dev
 
 ```
 
-Ahora nos ubicamos en el navegado en la direccion localhost:8000 en donde deberia ya estar ejecutandose el proyecto.
+Ahora nos ubicamos en el navegador en la direccion localhost:8000 donde se debe de visualizar el proyecto
+

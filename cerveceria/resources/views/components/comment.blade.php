@@ -9,7 +9,7 @@
             </div>
         </div>
         <div class=" text-[#E41AD6] text-[4vw] sm:text-[30px] w-[50%] flex justify-end">
-            responder
+            Responder
         </div>
 
     </div>
