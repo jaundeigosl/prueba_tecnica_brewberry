@@ -58,22 +58,22 @@
     
     const BREBERRY_AMOUNT = 50;
 
-//Function that adds to each brewberry its custom link
+//Function that adds to each brewbery its custom link
 
     function addRedirectLink(id , location = ''){
         let container;
         
         if(location !== ''){
             container = document.querySelector("#" + CSS.escape(id+"-"+location) + " .card-container .link-container .link-redirect");
-            container.href = `/brewberry/${id}?location=${location}`;
+            container.href = `/Brewbery/${id}?location=${location}`;
         }else{
             container = document.querySelector("#" + CSS.escape(id) + " .card-container .link-container .link-redirect");
-            container.href = `/brewberry/${id}`;
+            container.href = `/Brewbery/${id}`;
         }
     }
 
 
-//Function that fetchs all the brweberries from the api-
+//Function that fetchs all the brweberies from the api-
 
     const STATE = 'california';
 

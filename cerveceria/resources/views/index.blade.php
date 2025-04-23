@@ -12,7 +12,7 @@
             <h2 class="font-bold text-[6vw] text-center">Registrate y comienza tu busqueda</h2>    
         </div>
         <span class="w-full flex items-center justify-center mt-[5vw]">
-            <a href="" class="font-bold w-[45vw] text-[7vw] text-center bg-linear-to-r from-[#3540E8] to-[#E41AD6] rounded-lg px-3 py-1 text-white"> Registrarse</a>
+            <a href="{{route('registrarse')}}" class="font-bold w-[45vw] text-[7vw] text-center bg-linear-to-r from-[#3540E8] to-[#E41AD6] rounded-lg px-3 py-1 text-white"> Registrarse</a>
         </span>
     </div>
     <div class=" flex flex-wrap items-center justify-center  mt-[10vw] ">
@@ -25,7 +25,7 @@
             </span>
         </div>
         <span class="w-full flex items-center justify-center mt-[5vw]">
-            <a href="" class="font-bold w-[45vw] text-[7vw] text-center bg-linear-to-r from-[#3540E8] to-[#E41AD6] rounded-lg px-3 py-1 text-white">Acceder</a>
+            <a href="{{route('login')}}" class="font-bold w-[45vw] text-[7vw] text-center bg-linear-to-r from-[#3540E8] to-[#E41AD6] rounded-lg px-3 py-1 text-white">Acceder</a>
         </span>
     </div>
 

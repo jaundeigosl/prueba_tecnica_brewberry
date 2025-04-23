@@ -13,24 +13,30 @@
         <h2 class="font-bold text-[4vw] text-center">Introduzca sus credenciales para proceder</h2>
     </div>
 
-    <form action="{{route('acceder')}}" method="POST"  >
+    <form action="{{route('login')}}" method="POST"  >
         @csrf
         <div class="px-[16vw] flex flex-wrap">
 
             <div class="h-[12vw] mb-[2vw] flex flex-wrap">
                 
                 <label class="w-full text-[4vw]" for="email"> Email</label>
-                <input  class="text-[4vw] h-[6vw] border-2 border-white rounded-lg" type="email"  placeholder="Ejemplo@gmail.com" id="email" required>
+                <input  class="text-[4vw] h-[6vw] border-2 border-white rounded-lg" type="email"  placeholder="Ejemplo@gmail.com" id="email" name="email" required>
             </div>
-
-            <div class="hidden text-red-500 text-[3vw] my-[2vw] error-message" id="email-error"></div>
 
             <div  class="h-[12vw] mb-[2vw] flex flex-wrap">
                 <label class="w-full text-[4vw]" for="password"> Contraseña</label>
-                <input  class="text-[4vw] h-[6vw] border-2 border-white rounded-lg" type="password" placeholder="contraseña secreta" id="password" required>
+                <input  class="text-[4vw] h-[6vw] border-2 border-white rounded-lg" type="password" placeholder="contraseña secreta" id="password" name="password" required>
             </div>
             
-            <div class="hidden text-red-500 text-[3vw] my-[2vw] error-message" id="password-error"></div>
+            @if($errors->any())
+            
+            <div class="text-red-500 text-[3vw] my-[2vw] error-message">
+                @foreach ($errors->all() as $error)
+                    <li><span>{{$error}}</span></li>
+                @endforeach
+            </div>
+
+            @endif
 
             <div  class="w-full h-[12vw] mb-[2vw] flex items-end">
                 <div class="w-full h-[7.5vw] bg-linear-to-r from-[#3540E8] to-[#E41AD6] rounded-lg">
