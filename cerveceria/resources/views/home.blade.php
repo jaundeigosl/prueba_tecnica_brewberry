@@ -70,6 +70,11 @@
 
 <script>
 
+    const STATE = 'california';
+    const PERPAGE = 5;
+    let pageCounterGeneralBrewbery = 1;
+    let pageCounterStateFilterBrewbery = 1;
+
     //adding the events for the dropdown (logout)
 
     document.addEventListener('DOMContentLoaded', function() {
@@ -96,31 +101,53 @@
         });
     });
 
-    
-    const BREBERRY_AMOUNT = 50;
-
 //Function that adds to each item its custom link
 
-    function addRedirectLink(id , location = ''){
+    function addRedirectLink(id ,idcontainer, location = ''){
+
         let container;
+
+        container = document.querySelector("#" + CSS.escape(idcontainer) + " .card-container .link-container .link-redirect");
+        container.href = `/Brewbery/${id}`;
         
-        if(location !== ''){
-            container = document.querySelector("#" + CSS.escape(id+"-"+location) + " .card-container .link-container .link-redirect");
-            container.href = `/Brewbery/${id}?location=${location}`;
-        }else{
-            container = document.querySelector("#" + CSS.escape(id) + " .card-container .link-container .link-redirect");
-            container.href = `/Brewbery/${id}`;
-        }
     }
 
 
 //Function that fetchs all the brewberies from the api
-    const STATE = 'California';
 
-    async function fetchBreweries() {
+    function insertBrewbery(container, id, name, address,phone){
+        container.innerHTML += `
+            <div id="${id}" class="flex flex-shrink-0 max-h-[250px] sm:max-h-[280px] min-w-[300px] max-w-[320px] sm:max-w-[580px] mx-[1vw]">
+                <x-card>
+                    <x-slot name="brewberry_name">
+                        <h1 class="font-bold text-[5vw] sm:text-[25px] mb-[2vw] line-clamp-1">
+                            ${name}
+                        </h1>
+                    </x-slot>
+
+                    <x-slot name="brewberry_image">
+                        <img class="w-[40vw] max-w-[80px] sm:max-w-[120px] rounded-full" src="{{asset('images/brewberries/cerveceria.jpg')}}" alt="brewberry image">
+                    </x-slot>
+
+                    <x-slot name="brewberry_location">
+                        <span class="text-[4vw] sm:text-[20px] line-clamp-2">
+                            ${address}
+                        </span>
+                    </x-slot>
+
+                    <x-slot name="brewberry_phone_number">
+                        <span class="text-[4vw] sm:text-[20px]">
+                            ${phone}
+                        </span>
+                    </x-slot>
+                </x-card>
+            </div>`;
+    }
+
+    async function fetchBreweries(actualPage) {
         try {
 
-            let url = 'https://api.openbrewerydb.org/v1/breweries'
+            let url = `https://api.openbrewerydb.org/v1/breweries?page=${actualPage}&per_page=${PERPAGE}`
             
             const response = await fetch(url, {});
             if (!response.ok) {
@@ -153,81 +180,16 @@
                 let phone = item.phone;
 
                 if(phone == null || phone == ''){
-                    phone = 'No disponible';
+                    phone = 'No Disponible';
                 }
 
                 let id = item.id;
                 let name = item.name;
 
-                //for all the brewberies
-                container.innerHTML += `
-                    <div id="${id}" class="flex flex-shrink-0 max-h-[250px] sm:max-h-[280px] min-w-[300px] max-w-[320px] sm:max-w-[580px] mx-[1vw]">
-                        <x-card>
-                            <x-slot name="brewberry_name">
-                                <h1 class="font-bold text-[5vw] sm:text-[25px] mb-[2vw] line-clamp-1">
-                                    ${name}
-                                </h1>
-                            </x-slot>
-
-                            <x-slot name="brewberry_image">
-                                <img class="w-[40vw] max-w-[80px] sm:max-w-[120px] rounded-full" src="{{asset('images/brewberries/cerveceria.jpg')}}" alt="brewberry image">
-                            </x-slot>
-
-                            <x-slot name="brewberry_location">
-                                <span class="text-[4vw] sm:text-[20px] line-clamp-2">
-                                    ${address}
-                                </span>
-                            </x-slot>
-
-                            <x-slot name="brewberry_phone_number">
-                                <span class="text-[4vw] sm:text-[20px]">
-                                    ${phone}
-                                </span>
-                            </x-slot>
-                        </x-card>
-                    </div>`;
-
-                addRedirectLink(id); 
-
-                //state filter
-                if(item.state == STATE){
-
-                    let filterContainer =  document.getElementById('carrousel-elements-california');
-
-                    id = item.id +"-"+item.state;
-                    
-                    filterContainer.innerHTML += `
-                    <div id="${id}" class="flex flex-shrink-0 max-h-[250px] sm:max-h-[280px] min-w-[300px] max-w-[320px] sm:max-w-[580px] mx-[1vw]">
-                        <x-card>
-                            <x-slot name="brewberry_name">
-                                <h1 class="font-bold text-[5vw] sm:text-[25px] mb-[2vw] line-clamp-1">
-                                    ${name}
-                                </h1>
-                            </x-slot>
-
-                            <x-slot name="brewberry_image">
-                                <img class="w-[40vw] max-w-[80px] sm:max-w-[120px] rounded-full" src="{{asset('images/brewberries/cerveceria.jpg')}}" alt="brewberry image">
-                            </x-slot>
-
-                            <x-slot name="brewberry_location">
-                                <span class="text-[4vw] sm:text-[20px] line-clamp-2">
-                                    ${address}
-                                </span>
-                            </x-slot>
-
-                            <x-slot name="brewberry_phone_number">
-                                <span class="text-[4vw] sm:text-[20px]">
-                                    ${phone}
-                                </span>
-                            </x-slot>
-                        </x-card>
-                    </div>`;
-
-                    addRedirectLink(item.id , item.state);
-                }
+                insertBrewbery(container,id,name,address,phone)
+                addRedirectLink(id, id); 
                     
             });
-
 
         } catch (error) {
             alert(error.message);
@@ -235,7 +197,61 @@
 
     }
 
-    fetchBreweries();
+    async function fetchBreweriesByState(actualPage){
+        try{
+
+            let url = `https://api.openbrewerydb.org/v1/breweries?by_state=${STATE}&page=${actualPage}&per_page=${PERPAGE}`;
+        
+            const response = await fetch(url, {});
+            if (!response.ok) {
+                throw new Error(response.statusText +" "+ response.status);
+            }
+            const data = await response.json();
+
+            let container = document.getElementById(`carrousel-elements-${STATE}`);
+            console.log(container);
+            console.log(data);
+            data.forEach((item)=>{
+
+                let address = '';
+
+                if(item.street !== null && item.street !== ''){
+                    address = item.street + ', ';
+                }
+
+                if(item.city !== null && item.city !== ''){
+                    address = address + item.city + ', ';
+                }
+
+                if(item.state !== null && item.state !== ''){
+                    address = address + item.state;
+                }
+               
+                if(address == ''){
+                    address = 'No Disponible';
+                }
+
+                let phone = item.phone;
+
+                if(phone == null || phone == ''){
+                    phone = 'No Disponible';
+                }
+
+                let id = item.id +"-"+item.state;;
+                let name = item.name;
+
+                insertBrewbery(container,id,name,address,phone)
+                addRedirectLink(item.id,id, STATE); 
+                    
+            });
+        }catch(error){
+            alert(error.message);
+        }
+    }
+
+    fetchBreweries(pageCounterGeneralBrewbery);
+    fetchBreweriesByState(pageCounterStateFilterBrewbery);
+
     
 </script>
 

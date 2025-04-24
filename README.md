@@ -33,7 +33,7 @@ composer install
 
 ```
 **Instalar dependencias de Js**
-Procedemos con la instalacion de las dependecias de javascript
+Procedemos con la instalacion de las dependecias de javascript.
 
 ```bash
 
@@ -42,7 +42,7 @@ npm install
 ```
 **Configuracion del entorno**
 Ahora se debe de crear un nuevo archivo .env , de manera que se puede copiar el archivo .env.example 
-y cambiar los siguientes valores y sustituirlos por los correspondientes
+y cambiar los siguientes valores y sustituirlos por los correspondientes.
 
 ``` ini
 DB_CONNECTION=mysql
@@ -54,7 +54,7 @@ DB_PASSWORD=contraseña_usuario_base_de_datos
 
 ```
 **Ejecutar Migraciones**
-Ahora procedemos a ejecutar las migraciones
+Ahora procedemos a ejecutar las migraciones.
 
 ```bash
 
@@ -62,7 +62,7 @@ php artisan migrate
 
 ```
 **Levantar el servidor**
-Finalmente para levantar el servidor usamos el comando
+Finalmente para levantar el servidor usamos el comando.
 
 ```bash
 
@@ -70,17 +70,17 @@ composer run dev
 
 ```
 
-Ahora nos ubicamos en el navegador en la direccion localhost:8000 donde se debe de visualizar el proyecto
+Ahora nos ubicamos en el navegador en la direccion localhost:8000 donde se debe de visualizar el proyecto.
 
 ## Objetivos
 
 1. **Construir una aplicación web basada en un diseño proporcionado en Figma** 
-2. **Consumo datos desde una API pública de cervecerías**
+2. **Consumo de datos desde una API pública de cervecerías**
 3. **Construir un sistema básico de autenticación de usuarios**
 
 ## Tecnologias usadas
 
-**Frontend:** HTML5, CSS3, Javascript , Blade , Tailwind
+**Frontend:** HTML5, CSS3, Javascript, Blade ,Tailwind.
 
 Para el desarrollo del frontend, además de las tecnologías básicas como HTML, CSS y JavaScript, decidí utilizar Blade y Tailwind. Opté por Blade porque, al estar integrado en Laravel, me facilita dividir el diseño en componentes reutilizables y de fácil manejo, lo que agiliza la organización y el mantenimiento del código. Por otra parte, elegí Tailwind ya que me permite aplicar estilos de forma directa y sencilla mediante clases utilitarias, lo que simplifica la personalización y el diseño responsivo de la interfaz, adaptando la aplicación a diferentes dispositivos de manera eficiente.
 
@@ -98,7 +98,7 @@ Configuracion de las sesiones
 'expire_on_close' => false,
 ```
 
-Ejemplo de la validacion de credenciales y regeracion de sesión
+Ejemplo de la validacion de credenciales y regeracion de sesión.
 ```php
 $credentials = $request->validate([
     'email' => 'required|email|exists:users,email',

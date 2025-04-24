@@ -151,6 +151,14 @@
 
             let phone = data.phone;
 
+            if(location == '' || location == null){
+                location = 'No disponible';
+            }
+
+            if(phone == '' || phone == null){
+                phone = 'No disponible';
+            }
+
             let titleContainer = document.getElementById('brewberry-name');
 
             let locationContainer = document.getElementById('brewberry-location');
@@ -163,7 +171,6 @@
 
             phoneContainer.innerHTML += `<div class="text-[4vw] sm:text-[25px]">${phone}</div>`
 
-        
         }catch (error) {
 
             alert(error.message);
