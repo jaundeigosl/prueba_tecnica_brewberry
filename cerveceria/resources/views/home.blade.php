@@ -50,8 +50,15 @@
 </div>
 <div class="w-full">
     <div class="relative min-h-52 ms:min-h-60 overflow-x-auto overflow-y-hidden rounded-lg">
+        
         <div id="carrousel-elements-all" class="flex w-max min-w-full"> 
         </div>
+
+        <button id="load-more-all" class="absolute right-2 top-1/2 transform -translate-y-1/2 opacity-20 hover:opacity-100 transition-opacity duration-300">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+            </svg>
+        </button>
     </div>
 </div>
 
