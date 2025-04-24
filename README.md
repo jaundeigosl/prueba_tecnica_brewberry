@@ -148,12 +148,12 @@ el cual al hacer click en el nos mostrar la opcion de cerrar la sesion y se nos 
 ![Home de la aplicacion donde se encuentra todas las cervecerias disponibles](screenshots/image_4.png)
 
 Cada cerveceria tiene una breve descripcion y un boton de **Ver mas**, que nos redirige a otra pagina con mas detalles de la cerveceria
-En esta pagina podemos  ver imagenes del lugar y opiniones de distintos usuarios, asi como tambien dos botones, uno que nos permite ralizar reservars y otro
+En esta pagina podemos  ver imagenes del lugar y opiniones de distintos usuarios, asi como tambien dos botones, uno que nos permite ralizar reservars y otro.
 que nos permite personalizar el transporte.
 
 ![Pagina con detalles de la cerveceria](screenshots/image_5.png)
 
-Si se desea retornar podemos utilizar tanto el icono en la parte inferior denominado **Home** como el icono de una flecha en la parte superior izquierda
+Si se desea retornar podemos utilizar tanto el icono en la barra inferior denominado **Inicio** como el icono de una flecha en la barra superior a la izquierda.
 
 
 
