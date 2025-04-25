@@ -10,7 +10,7 @@
     <div class="flex justify-center">
         <img class="w-[7vw] max-w-[40px]" src="{{asset('images/icons/bottom_bar_icons/home.svg')}}" alt="home icon">
     </div>
-    <div class="text-[4vw] sm:text-[17px] text-center">Inicio</div>
+    <div class="text-[4vw] sm:text-[20px] text-center">Inicio</div>
     
 @endsection
 
@@ -55,11 +55,11 @@
     <div class="pl-[4vw] pr-[4vw] mb-[7vw] text-white">
         <div class="h-[40vw] px-1">
             <span class="m-[2vw] w-full">
-                <a href="" class="w-full h-[25px] min-h-[12vw] font-bold text-[4vw] text-center bg-linear-to-r from-[#3540E8] to-[#E41AD6] rounded-lg px-3 py-1 text-sm font-semibold text-white flex items-center justify-center">Reservar mesa</a>  
+                <a href="" class="w-full h-[25px] min-h-[12vw] font-bold text-[4vw] text-center bg-linear-to-r from-[#3540E8] to-[#E41AD6] rounded-lg sm:rounded-xl px-3 py-1 text-sm font-semibold text-white flex items-center justify-center">Reservar mesa</a>  
             </span>
-            <span class="m-[2vw]">
-                <a href="" class="w-full h-[26px] min-h-[12vw] bg-linear-to-r from-[#3540E8] to-[#E41AD6] rounded-lg px-0.5 flex items-center justify-center">
-                    <div class="w-full h-[25px] min-h-[11.5vw] bg-black rounded-lg">
+            <span>
+                <a href="" class="w-full min-h-[12.5vw] bg-linear-to-r from-[#3540E8] to-[#E41AD6] rounded-lg sm:rounded-xl px-[0.5vw] flex items-center justify-center">
+                    <div class="w-full flex justify-center items-center min-h-[11.5vw] bg-black rounded-lg sm:rounded-xl">
                         <div class=" w-full h-full flex justify-center items-center font-bold text-[4vw] text-center text-white"> 
                             Opciones de transporte
                         </div>
@@ -91,7 +91,7 @@
                 </x-slot>
 
                 <x-slot name="comment">
-                    <div class="text-white line-clamp-2 text-[3vw] sm:text-[25px]">
+                    <div class="text-white line-clamp-2 text-[3.5vw]">
                         Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
                         Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
                     </div
@@ -124,7 +124,6 @@
         try {
 
             let url = `https://api.openbrewerydb.org/v1/breweries/${id}`;
-            
             const response = await fetch(url, {});
 
             if (!response.ok) {

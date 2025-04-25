@@ -1,4 +1,4 @@
-<div class="card-container rounded-md sm:rounded-lg bg-[#13132D] m-[2%] pl-[1%]">
+<div class="card-container relative rounded-md sm:rounded-lg bg-[#13132D] m-[2%] pl-[2%] pr-[0.25%] pb-[60px]">
   <div class="px-[2vw] py-[1vw] h-auto">
     {{$brewberry_name ?? ''}}
   </div>
@@ -22,7 +22,7 @@
     </div>
   </div>
 
-  <div class="link-container px-6 pt-4 pb-2 flex justify-center mb-[1vw]">
-    <a href="" class="link-redirect w-[200px] h-[25px] sm:w-[300px] sm:h-[35px] text-center bg-linear-to-r from-[#3540E8] to-[#E41AD6] rounded-lg px-3 py-1 text-sm font-semibold text-white flex items-center justify-center">Ver más</a>
+  <div class="absolute link-container left-0 right-0 bottom-0 flex justify-center pb-2 mb-[1vw]">
+    <a href="" class="link-redirect w-[200px] h-[25px] sm:w-[300px] sm:h-[35px] text-center bg-linear-to-r from-[#3540E8] to-[#E41AD6] rounded-lg px-3 py-1 text-sm font-semibold text-white flex items-center justify-center text-[3.5vw] ">Ver más</a>
   </div>
 </div>

@@ -125,6 +125,20 @@ $request->session()->regenerateToken();
 return redirect()->route('index')
 ```
 
+## Uso de la API
+
+La API tiene múltiples endpoints con opción a **paginación** que decidí utilizar, ya que permiten filtrar y controlar la cantidad de datos por petición mejorando en gran medida el rendimiento. Limité la cantidad de datos por página a 3 (número arbitrario), y mediante el uso de un botón se pueden obtener la siguiente página.
+
+![fetch a la API](screenshots/image_6.png)
+
+El segundo tipo de petición realizada filtra por estado los datos solicitados, manteniendo la página y cantidad de datos por página
+
+![fetch a la API](screenshots/image_7.png)
+
+El último tipo de petición es mediante un ID y es utilizada en la página individual de cada Cervecería 
+
+![fetch a la API](screenshots/image_8.png)
+
 ## Manual de uso
 
 El directorio raíz muestra una vista con dos botones que permiten escoger entre acceder o registrarse en la aplicación.
